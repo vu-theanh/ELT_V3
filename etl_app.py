@@ -8,6 +8,7 @@ import pdfplumber
 import os
 
 Page_config = {"page_title": " THE ANH VU", "layout": "wide", "initial_sidebar_state": "auto"}
+st.set_page_config(**Page_config)
 def text_to_csv():
 
 	col1, col2, col3, col4, col5 = st.columns(5)
@@ -65,7 +66,8 @@ def text_to_csv():
 
 def main():
 	st.title("ICG Well data ELT")
-	st.subheader("Copy right @ The Anh Vu")
+	st.subheader("@ The Anh Vu")
+	st.info("Save your LAS file as .TXT type and convert it to SQL loadable format ")
 	submenu = ["ELT", "About Me"]
 	choice = st.sidebar.selectbox("Sub Menu",submenu )
 	text_to_csv()
