@@ -6,6 +6,11 @@ import docx2txt
 from PyPDF2 import PdfReader as PdfFileReader
 import pdfplumber
 import os
+import lasio 
+from sys import stdout
+import openpyxl 
+from openpyxl import Workbook
+from io import StringIO
 
 Page_config = {"page_title": " THE ANH VU", "layout": "wide", "initial_sidebar_state": "auto"}
 st.set_page_config(**Page_config)
@@ -48,21 +53,26 @@ def text_to_csv():
 
 	
 	st.dataframe(dataframe, use_container_width=True)
-	csv = dataframe.to_csv().encode('utf-8')
+	csv = dataframe.to_csv(header=True, index=False).encode('utf-8')
 	col1, col2= st.columns(2)
+
+
+	myname = st.text_input("File_Name", value = "File Name", label_visibility="hidden")
 	with col1:
 		st.download_button(
 	    label="Download data as .CSV",
 	    data=csv,
-	    file_name='Theanh.csv',
+	    file_name='Welllog_{}.csv'.format(myname),
 	    mime='text/csv',)
 
 	with col2:
 		st.download_button(
 	    label="Download data as .TXT",
 	    data=csv,
-	    file_name='Theanh.txt',
+	    file_name='Welllog_{}.txt'.format(myname),
 	    mime='text/csv',)
+
+
 
 def main():
 	st.title("ICG Well data ELT")
