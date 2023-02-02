@@ -6,11 +6,11 @@ import docx2txt
 from PyPDF2 import PdfReader as PdfFileReader
 import pdfplumber
 import os
-import lasio 
-from sys import stdout
-import openpyxl 
-from openpyxl import Workbook
-from io import StringIO
+#import lasio 
+#from sys import stdout
+#import openpyxl 
+#from openpyxl import Workbook
+#from io import StringIO
 
 Page_config = {"page_title": " THE ANH VU", "layout": "wide", "initial_sidebar_state": "auto"}
 st.set_page_config(**Page_config)
