@@ -39,7 +39,7 @@ def text_to_csv():
 
 		if data_file.type =="text/plain":
 			try:
-				dataframe = pd.read_csv(data_file, skiprows=myrows, sep = "\s+",nrows = 10, skipinitialspace=True, header=header_line)
+				dataframe = pd.read_csv(data_file, skiprows=myrows, sep = "\s+", skipinitialspace=True, header=header_line)
 				# dataframe = dataframe.replace(myINT_NaN, -999.255)
 				# dataframe = dataframe.replace(myString_NaN, "NULL")
 				dataframe['RUN'] = int(myFK1)
